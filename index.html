@@ -16,7 +16,7 @@
     var kmDaPercorrere = parseInt(prompt('Quanti km devi percorrere?'));
     var age = parseInt(prompt('Quanti anni hai?'));
 
-    var prezzoBase = parseFloat(kmDaPercorrere * 0.21);
+    var prezzoBase = Math.ceil(kmDaPercorrere * 0.21);
     var sconto = 0;
 
     document.getElementById('kmDaFare').innerHTML = kmDaPercorrere + 'km';
