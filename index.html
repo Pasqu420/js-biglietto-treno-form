@@ -6,6 +6,10 @@
   </head>
   <body>
 
+    <h1 id="kmDaFare"></h1>
+    <h1 id="age"></h1>
+    <h2>costo del biglietto</h2>
+    <h1 id="prezzo"></h1>
 
     <script type="text/javascript">
 
@@ -14,15 +18,23 @@
     var singoloKm = 0.21;
     var sumKm = singoloKm * kmDaPercorrere;
 
+    document.getElementById('kmDaFare').innerHTML = kmDaPercorrere + 'km';
+    document.getElementById('age').innerHTML = age + 'anni';
+
     if (age <= 17) {
       var sumUnder =  sumKm - (sumKm / 100 * 20);
+      document.getElementById('prezzo').innerHTML = sumUnder + '€';
       console.log("sconto minorenne");
     } else if (age >= 65) {
       var sumOver = sumKm - (sumKm / 100 * 40);
+      document.getElementById('prezzo').innerHTML = sumOver + '€';
       console.log("sconto over 65");
+    }else {
+      document.getElementById('prezzo').innerHTML = sumKm + '€';
+      console.log("prezzo pieno");
     }
 
-    console.log(kmDaPercorrere, age, singoloKm, sumKm,'euro', sumUnder,'euro', sumOver,'euro');
+    console.log(kmDaPercorrere, age, singoloKm,'€', sumKm,'€', sumUnder,'€', sumOver,'€');
     </script>
 
   </body>
