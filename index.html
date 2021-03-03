@@ -13,28 +13,31 @@
 
     <script type="text/javascript">
 
-    var kmDaPercorrere = prompt('Quanti km devi percorrere?');
-    var age = prompt('Quanti anni hai?');
-    var singoloKm = 0.21;
-    var sumKm = singoloKm * kmDaPercorrere;
+    var kmDaPercorrere = parseInt(prompt('Quanti km devi percorrere?'));
+    var age = parseInt(prompt('Quanti anni hai?'));
+
+    var prezzoBase = parseFloat(kmDaPercorrere * 0.21);
+    var sconto = 0;
 
     document.getElementById('kmDaFare').innerHTML = kmDaPercorrere + 'km';
     document.getElementById('age').innerHTML = age + 'anni';
 
     if (age <= 17) {
-      var sumUnder =  sumKm - (sumKm / 100 * 20);
-      document.getElementById('prezzo').innerHTML = sumUnder + '€';
+      var sconto =20;
       console.log("sconto minorenne");
     } else if (age >= 65) {
-      var sumOver = sumKm - (sumKm / 100 * 40);
-      document.getElementById('prezzo').innerHTML = sumOver + '€';
+      var sconto = 40;
       console.log("sconto over 65");
     }else {
-      document.getElementById('prezzo').innerHTML = sumKm + '€';
       console.log("prezzo pieno");
     }
 
-    console.log(kmDaPercorrere, age, singoloKm,'€', sumKm,'€', sumUnder,'€', sumOver,'€');
+    var prezzoTotale = prezzoBase - (prezzoBase / 100 * sconto).toFixed(2);
+
+    document.getElementById('prezzo').innerHTML = prezzoTotale + '€';
+
+    console.log(kmDaPercorrere, age, prezzoBase, prezzoTotale, sconto);
+
     </script>
 
   </body>
