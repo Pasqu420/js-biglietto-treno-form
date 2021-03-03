@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>ex biglietto</title>
+  </head>
+  <body>
+
+
+    <script type="text/javascript">
+
+    var kmDaPercorrere = prompt('Quanti km devi percorrere?');
+    var age = prompt('Quanti anni hai?');
+    var singoloKm = 0.21;
+    var sumKm = singoloKm * kmDaPercorrere;
+
+    if (age <= 17) {
+      var sumUnder =  sumKm - (sumKm / 100 * 20);
+      console.log("sconto minorenne");
+    } else if (age >= 65) {
+      var sumOver = sumKm - (sumKm / 100 * 40);
+      console.log("sconto over 65");
+    }
+
+    console.log(kmDaPercorrere, age, singoloKm, sumKm,'euro', sumUnder,'euro', sumOver,'euro');
+    </script>
+
+  </body>
+</html>
